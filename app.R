@@ -1,30 +1,21 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
-
 library(shiny)
+# library(shinydashboard)
+# 
+# header <- dashboardHeader(title="Date picker")
+# sidebar <- dashboardSidebar()
+# body <- dashboardBody()
+
+ui <- dashboardPage(header, sidebar, body, skin=skin)
+
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
   
-  tags$div(
-    
-    HTML(
-      '<!-- Include Required Prerequisites -->
-      <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-      <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
-      
-      <!-- Include Date Range Picker -->
-      <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />'
-    )
-    ),
+  tags$head(tags$script(src = 'jquery.min.js')),
+  tags$head(tags$script(src = 'moment.min.js')),
+  # tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "bootstrap.css")),
+  tags$head(tags$script(src = 'daterangepicker.js')),
+  tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "daterangepicker.css")),
   
   # Application title
   titlePanel("Date range"),
