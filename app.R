@@ -5,7 +5,7 @@ header <- dashboardHeader(title="Date picker")
 sidebar <- dashboardSidebar()
 body <- dashboardBody(
   
-  tags$head(tags$script(src = 'jquery.min.js')),
+  # tags$head(tags$script(src = 'jquery.min.js')),
   tags$head(tags$script(src = 'moment.min.js')),
   # tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "bootstrap.css")),
   tags$head(tags$script(src = 'daterangepicker.js')),
@@ -14,20 +14,14 @@ body <- dashboardBody(
   # Application title
   titlePanel("Date range"),
   
-  # Sidebar with a slider input for number of bins 
-  sidebarLayout(
-    sidebarPanel(
-      uiOutput('date_ui')
-    ),
-    
-    # Show a plot of the generated distribution
-    mainPanel(
-      textOutput("date_range_values")
-    )
-  )
-)
+  fluidPage(
+    fluidRow(column(4,uiOutput('date_ui')),
+             column(8,
+                    textOutput("date_range_values")))
+  ))
 
-ui <- dashboardPage(header, sidebar, body, skin=skin)
+
+ui <- dashboardPage(header, sidebar, body)
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
@@ -56,7 +50,7 @@ server <- function(input, output) {
       HTML(
         paste0(
           " 
-          <input type=\"text\" id = \"joe\" name=\"daterange\" value=\"", dr[1], " - ", dr[2], "\" />
+          <input  type=\"text\" id = \"joe\" name=\"daterange\" value=\"", dr[1], " - ", dr[2], "\" />
           
           <script type=\"text/javascript\">
           $(function() {
@@ -70,7 +64,7 @@ server <- function(input, output) {
           });
           </script>"
         )
-        )
+      )
     )
   })
 }
