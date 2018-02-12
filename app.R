@@ -50,13 +50,22 @@ server <- function(input, output) {
       HTML(
         paste0(
           " 
-          <input  type=\"text\" id = \"joe\" name=\"daterange\" value=\"", dr[1], " - ", dr[2], "\" />
           
+          <div class=\"form-group shiny-input-container\" style=\"width: 60%; \">
+<label for=\"date_range\">Pick a date range for analysis</label>
+          <input type=\"text\" class=\"form-control\" id = \"joe\" name=\"daterange\" value=\"", dr[1], " - ", dr[2], "\" />
+       </div>   
           <script type=\"text/javascript\">
           $(function() {
-          $('input[name=\"daterange\"]').daterangepicker();
-// the below two lines were written by joe, trying to get the input list
-// to get updated, but it's not working
+          $('input[name=\"daterange\"]').daterangepicker({
+
+          \"linkedCalendars\": false,
+          \"alwaysShowCalendars\": true,
+          \"autoApply\": true,
+          \"opens\": \"center\",
+
+          });
+// JOE:
           document.getElementById(\"joe\").onchange = function() {
         var time = document.getElementById(\"joe\").value;
         Shiny.onInputChange(\"daterange\", time);

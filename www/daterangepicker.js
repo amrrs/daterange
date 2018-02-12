@@ -38,7 +38,7 @@
         this.dateLimit = false;
         this.autoApply = false;
         this.singleDatePicker = false;
-        this.showDropdowns = true;
+        this.showDropdowns = false;
         this.showWeekNumbers = false;
         this.showISOWeekNumbers = false;
         this.showCustomRangeLabel = true;
@@ -1140,11 +1140,15 @@
             //if picker is attached to a text input, update it
             this.updateElement();
 
+// XING: this is maybe what we need to modify. By messing with some of this, I 
+// can get the dates to stay visible, bu then either (a) they don't update on
+// click or (b) the calendar gets re-positioned oddly...
             $(document).off('.daterangepicker');
             $(window).off('.daterangepicker');
             this.container.hide();
             this.element.trigger('hide.daterangepicker', this);
             this.isShowing = false;
+
         },
 
         toggle: function(e) {
