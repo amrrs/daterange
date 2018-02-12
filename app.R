@@ -1,15 +1,9 @@
 library(shiny)
-# library(shinydashboard)
-# 
-# header <- dashboardHeader(title="Date picker")
-# sidebar <- dashboardSidebar()
-# body <- dashboardBody()
+library(shinydashboard)
 
-ui <- dashboardPage(header, sidebar, body, skin=skin)
-
-
-# Define UI for application that draws a histogram
-ui <- fluidPage(
+header <- dashboardHeader(title="Date picker")
+sidebar <- dashboardSidebar()
+body <- dashboardBody(
   
   tags$head(tags$script(src = 'jquery.min.js')),
   tags$head(tags$script(src = 'moment.min.js')),
@@ -24,14 +18,16 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       uiOutput('date_ui')
-      ),
+    ),
     
     # Show a plot of the generated distribution
     mainPanel(
       textOutput("date_range_values")
     )
-      )
-      )
+  )
+)
+
+ui <- dashboardPage(header, sidebar, body, skin=skin)
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
