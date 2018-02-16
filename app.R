@@ -57,6 +57,9 @@ server <- function(input, output,session) {
     message('Joe:')
     print(input$joe)
     date_range(date_input)
+    output$show_inputs <- renderTable({
+    AllInputs()
+  })
   })
   
   AllInputs <- reactive({
@@ -67,9 +70,7 @@ server <- function(input, output,session) {
     )
   })
   
-  output$show_inputs <- renderTable({
-    AllInputs()
-  })
+  
   
   output$date_ui <- renderUI({
     
