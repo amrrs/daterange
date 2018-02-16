@@ -60,7 +60,7 @@ server <- function(input, output,session) {
     output$show_inputs <- renderTable({
     AllInputs()
   })
-  })
+  }, ignoreNULL = FALSE, ignoreInit = FALSE)
   
   AllInputs <- reactive({
     x <- reactiveValuesToList(input)
