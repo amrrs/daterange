@@ -89,7 +89,9 @@ server <- function(input, output,session) {
                     inline:true,
                     container: '#daterange12container', 
                     alwaysOpen:true
-                    });
+                    }).bind('datepicker-change', function(evt, obj) {
+	alert('date1: ' + obj.date1 + ' / date2: ' + obj.date2);
+});
                     
                     // JOE:
                     
