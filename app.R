@@ -95,7 +95,7 @@ server <- function(input, output,session) {
                     
                     // JOE:
                     
-                    $('#daterange12').on('change', function() {
+                    $('#daterange12').on('bind', function() {
                     var time = document.getElementById(\"daterange12container\").value;
     Shiny.onInputChange(\"daterange12\", time);
         val = document.getElementById(\"daterange12container\").value;
