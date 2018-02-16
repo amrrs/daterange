@@ -13,6 +13,7 @@ $(function()
 
 	$.dateRangePickerLanguages['custom'] = 
 	{
+		autoClose: true,
 		'selected': 'Choosed:',
 		'days': 'Days',
 		'apply': 'Close',
