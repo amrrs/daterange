@@ -94,8 +94,8 @@ server <- function(input, output,session) {
                     var time = document.getElementById(\"daterange12container\").value;
     Shiny.onInputChange(\"daterange12\", time);
         val = document.getElementById(\"daterange12container\").value;
-                    Shiny.onInputChange(\"daterange12\",val);
-	Shiny.onInputChange('joe',obj.date1);
+          Shiny.onInputChange("daterange12",val);
+	//Shiny.onInputChange('joe',obj.date1);
 	alert('date1: ' + obj.date1 + ' / date2: ' + obj.date2);
 });
                     
